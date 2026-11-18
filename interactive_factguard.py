@@ -5,7 +5,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel
 
 BASE_MODEL = "Qwen/Qwen2.5-1.5B-Instruct"
-ADAPTER_PATH = "/home/sriharish00u/Desktop/projects/NEXUS/models/factguard_adapter/factguard_adapter"
+ADAPTER_PATH = "sriharish00u/factguard-slm-adapter"
 
 print("="*65)
 print("       FactGuard-SLM Interactive Testing Console")
