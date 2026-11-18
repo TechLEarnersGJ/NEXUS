@@ -1,0 +1,102 @@
+# NEXUS Provider Configuration
+
+providers:
+  kaggle:
+    enabled: true
+    priority: 1
+    description: "Kaggle GPU Compute Platform"
+    auth_method: "kaggle"
+    capabilities:
+      gpu_memory_gb: 14.56
+      max_runtime_h: 168
+      resume: true
+      gpu_count: 1
+      max_memory_gb: 32
+      supports_colab: false
+      supports_huggingface: true
+    endpoints:
+      api: "https://www.kaggle.com/api/v1"
+      kernels: "https://www.kaggle.com/api/v1/kernels"
+      datasets: "https://www.kaggle.com/api/v1/datasets"
+      models: "https://www.kaggle.com/api/v1/models"
+    limits:
+      gpu_hours_quota: 30
+      notebook_execution_timeout: 3600
+    metadata:
+      gpu_type: "Tesla T4"
+      python_version: "3.13.15"
+      pytorch_version: "2.11.0+cu128"
+      cuda_version: "12.1"
+      supports_bfloat16: true
+      supports_fp16: true
+
+  colab:
+    enabled: true
+    priority: 2
+    description: "Google Colab GPU Platform"
+    auth_method: "google_oauth"
+    capabilities:
+      gpu_memory_gb: 12
+      max_runtime_h: 12
+      resume: false
+      gpu_count: 1
+      max_memory_gb: 24
+      supports_colab: true
+      supports_huggingface: true
+    endpoints:
+      api: "https://colab.research.google.com/api"
+      notebook: "https://colab.research.google.com"
+    limits:
+      runtime_timeout: 43200
+      max_gpus_per_session: 1
+    metadata:
+      gpu_type: "Tesla T4"
+      python_version: "3.13.16"
+      pytorch_version: "2.11.0+cu130"
+      cuda_version: "12.0"
+      supports_bfloat16: true
+      supports_fp16: true
+
+  huggingface:
+    enabled: true
+    priority: 3
+    description: "Hugging Face Model & Dataset Hub"
+    auth_method: "huggingface"
+    capabilities:
+      gpu_memory_gb: 0
+      max_runtime_h: 0
+      resume: true
+      gpu_count: 0
+      max_memory_gb: 0
+      supports_colab: false
+      supports_huggingface: true
+    endpoints:
+      api: "https://huggingface.co/api"
+      models: "https://huggingface.co/models"
+      datasets: "https://huggingface.co/datasets"
+      space: "https://huggingface.co/spaces"
+    limits:
+      api_calls_per_minute: 60
+      downloads_quota_gb: 50
+    metadata:
+      supports_models: true
+      supports_datasets: true
+      supports_spaces: true
+      supports_model_upload: true
+      supports_dataset_upload: true
+      supports_token_auth: true
+
+# Global Provider Settings
+provider_manager:
+  default_timeout: 30
+  max_retries: 3
+  retry_delay: 1.0
+  health_check_interval: 300
+  quota_check_interval: 60
+  job_status_check_interval: 30
+
+# Authentication Environment Variables
+auth_env_vars:
+  kaggle: ["KAGGLE_USERNAME", "KAGGLE_KEY", "KAGGLE_API_TOKEN"]
+  colab: ["GOOGLE_AUTH_TOKEN", "COVALENT_AUTH_TOKEN"]
+  huggingface: ["HF_TOKEN", "HUGGINGFACE_TOKEN", "HUGGINGFACEHUB_API_TOKEN"]

@@ -1,0 +1,136 @@
+# Core ignore
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+*.crt
+
+# Python ignore
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+ENV/
+env/
+.pytodenv
+
+# Logs
+logs/
+*.log
+*.logs
+
+# Output/workspace
+workspace/
+*.ipynb_checkpoints/
+
+# Test artifacts
+tests/coverage/
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+.vscode/
+.idea/
+
+# Temporary files
+tmp/
+tmp-*
+*tmp*
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Package management
+requirements.txt
+pyproject.toml
+Pipfile
+Pipfile.lock
+poetry.lock
+
+# Security - never commit
+*.key
+*.p12
+*.pem
+*password*
+*secret*
+
+# System
+.DS_Store
+Thumbs.db
+
+# Runtime data
+*.pid
+*.sqlite
+dbm.sqlite3
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# Logging
+*.log
+logs/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS generated files
+.AppleDesktop
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor
+*~/*.py
+*~/*.md
+*~/*.yaml
+*~/*.yml
+# Model weights
+*.safetensors
+*.bin
+*.pt
+*.pth
+models/factguard_adapter/
+models/factguard/
+
+# Unneeded binary / test files
+Loading
